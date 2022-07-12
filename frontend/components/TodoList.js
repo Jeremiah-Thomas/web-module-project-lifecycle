@@ -9,8 +9,11 @@ export default class TodoList extends React.Component {
     return (
       <div id="todos">
         {this.props.todos.map((todo) => {
-          return <Todo todo={todo} />;
+          return (
+            <Todo key={todo.id} todo={todo} onClick={this.props.onClick} />
+          );
         })}
+        <button onClick={this.props.clearCompleted}>Clear Completed</button>
       </div>
     );
   }
